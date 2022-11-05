@@ -1,0 +1,20 @@
+<h1>Monster lesson</h1>
+
+<div *ngIf="article; else loading">{{article.title}}</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
+
+
+<hr>
+
+<ng-container *ngTemplateOutlet="articleTemplate; context: {article}"></ng-container>
+
+<ng-template #loadingTemplate>
+  <div>Loading...</div>
+</ng-template>
+
+<ng-template #articleTemplate let-a="article">
+  <div>{{a ? a.title : ''}}</div>
+</ng-template>
